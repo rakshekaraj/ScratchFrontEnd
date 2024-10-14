@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience Timeline</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8fafc;
+        color: black;
+        margin: 0;
+        padding: 0;
+      }
+      /* .experience-section {
+        max-width: 1000px;
+        padding: 20px;
+        background-color: #f8fafc;
+        color: black;
+      } */
+      h1 {
+        text-align: center;
+        color: #fff;
+      }
+      .timeline {
+        position: relative;
+        padding: 50px 0;
+      }
+      .timeline-item {
+        background-color: white;
+        margin: 2em;
+        padding: 20px 0;
+        position: relative;
+        width: 50%;
+        display: flex;
+        align-items: flex-start; /* Align items to the start */
+        box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+      }
+      .timeline-item:nth-child(odd) {
+        left: 50%;
+        justify-content: flex-start; /* Align to the left */
+      }
+      .timeline-item:nth-child(even) {
+        left: 0;
+        justify-content: flex-end; /* Align to the right */
+      }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #78716c;
+        top: 50%;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-item:nth-child(odd)::after {
+        left: -10px; /* Adjust for left alignment */
+      }
+      .timeline-item:nth-child(even)::after {
+        right: -10px; /* Adjust for right alignment */
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #5b3535;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+      .content {
+        padding: 20px;
+        /* background-color: rgba(255, 255, 255, 0.1); */
+        position: relative;
+        border-radius: 6px;
+        width: 80%;
+        max-width: 400px;
+        /* background-color: #334155; */
+      }
+      .timeline-item:nth-child(odd) .content {
+        margin-right: 40px;
+      }
+      .timeline-item:nth-child(even) .content {
+        margin-left: 40px;
+      }
+      .content h2 {
+        margin-top: 0;
+      }
+      .content p {
+        margin: 5px 0;
+      }
+      .tooltip {
+        visibility: hidden; /* Initially hidden */
+        max-height: 300px; /* Maximum height for the tooltip */
+        width: auto; /* Allow width to adjust according to content */
+        background-color: #44403c;
+        color: #fff;
+        text-align: left; /* Align text to the left for better readability */
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s, visibility 0.3s; /* Smooth transition */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+        pointer-events: auto; /* Allow mouse events on the tooltip */
+        scroll-behavior: smooth; /* Smooth scrolling behavior */
+        white-space: normal; /* Allow text to wrap */
+        min-width: 200px;
+        max-width: 200px;
+        padding: 1em;
+        /* Optional: Add some border for better visibility */
+        /* border: 1px solid rgba(255, 255, 255, 0.5); */
+      }
+
+      /* Tooltips for odd items will now appear on the right */
+      .timeline-item:nth-child(odd) .tooltip {
+        top: 50%;
+        left: calc(-65%); /* Tooltip on the right side */
+        transform: translateY(-50%);
+      }
+
+      /* Tooltips for even items will now appear on the left */
+      .timeline-item:nth-child(even) .tooltip {
+        top: 50%;
+        left: calc(100%); /* Tooltip on the left side */
+        transform: translateY(-50%);
+      }
+      .content:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        background-color: #78716c;
+        top: 50%;
+        z-index: 1;
+      }
+      .timeline-item:nth-child(odd)::before {
+        right: 0;
+      }
+      .timeline-item:nth-child(even)::before {
+        left: 0;
+      }
+
+      /*-----*/
+      /* Experience Section */
+      .experience-section {
+        padding: 50px;
+        text-align: center;
+        margin: 0 auto; /* Center the section */
+        max-width: 800px; /* Max width for larger screens */
+      }
+
+      .experience-section h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/me-logo.jpg" alt="Profile" class="profile-pic" />
+          </a>
+          <span class="name">RR</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- exp section -->
+    <section class="experience-section">
+      <h1>My Experience Timeline</h1>
+      <div class="timeline-item">
+        <div class="content">
+          <h2>WorkUp</h2>
+          <p>Machine Learning Engineer</p>
+          <p>May 2024 - Present</p>
+          <div class="tooltip">
+            <p>
+              Leverage deep learning models to develop a SOTA recommender system
+              for a TikTok-style application for employment using Nvidia Merlin
+              for pipeline creation and AWS Sage maker for Cloud deployment.
+              Major focus: Candidate retrieval system and model development
+              (Merlin with Two tower architecture)
+            </p>
+            <a href="#workup" style="color: #fff">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="content">
+          <h2>Kanini</h2>
+          <p>Machine Learning Engineer</p>
+          <p>February 2023 - May 2024</p>
+          <div class="tooltip">
+            <p>
+              Worked on software integration and deployment on Azure, utilizing
+              C# for backend development.
+            </p>
+            <a href="#kanini" style="color: #fff">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="content">
+          <h2>MSAII</h2>
+          <p>Machine Learning - Artificial Intelligence Intern</p>
+          <p>November 2022 - February 2023</p>
+          <div class="tooltip">
+            <p>
+              Collaborated with a group of engineers to optimize network to
+              ensure 99% system up-time while reducing network costs by 25%.
+              Enhanced a classification model for customer emotion analysis,
+              achieving 2-checkpoint reductions in error metric.
+            </p>
+            <a href="#msaii" style="color: #fff">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="content">
+          <h2>Teach Digital Lab</h2>
+          <p>Machine Learning Research Intern</p>
+          <p>June 2022 - October 2022</p>
+          <div class="tooltip">
+            <p>
+              Conducted predictive modelling to assess digital fluency among
+              Ontario's education professionals. Finished a VGG-16 and Resnet-34
+              inspired CNN model for object classification and identification.
+              Devised deep learning models, identified thresholds for exploding
+              gradients and solved it by infusing residual loops into
+              convolutional blocks to increase accuracy by 6%.
+            </p>
+            <a href="#teachdigital" style="color: #fff">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="content">
+          <h2>Zebo.AI</h2>
+          <p>Machine Learning Intern</p>
+          <p>October 2021 - January 2022</p>
+          <div class="tooltip">
+            <p>
+              Pioneered development of advanced fraud detection models,
+              leveraging anomaly detection and pattern recognition for financial
+              transactions, reduced false positives and improved precision by
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
